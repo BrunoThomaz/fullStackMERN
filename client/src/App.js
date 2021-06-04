@@ -35,10 +35,13 @@ const App = () => {
     }
     
   }
-  const getEntries = async () => {
-    const logEntries = await listLogEntries();
+  const getEntries = async (operadora="all") => {
+    const logEntries = await listLogEntries(operadora);
+    if (logEntries.message) {
+      return console.log(logEntries.message);
+    }
+    console.log(logEntries);
     setLogEntries(logEntries);
-    console.log('starting getEntries');
   }
 
   useEffect(() => {
@@ -60,7 +63,7 @@ const App = () => {
     <div
     className="mainApp"
     >
-      <MenuBar/>
+      <MenuBar getEntries={getEntries}/>
       <ReactMapGL
         {...viewport}
         onViewportChange = {setViewport}
@@ -99,7 +102,7 @@ const App = () => {
               >
                 <svg
                 viewBox="0 0 365 560" 
-                enable-background="new 0 0 365 560"
+                enableBackground="new 0 0 365 560"
                 width="24"
                 height="24"
                 className="marker"
@@ -146,7 +149,7 @@ const App = () => {
               >
                 <svg
                 viewBox="0 0 365 460" 
-                enable-background="new 0 0 365 460"
+                enableBackground="new 0 0 365 460"
                 width="24"
                 height="24"
                 className="addLog"

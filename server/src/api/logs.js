@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const LogEntry = require('../models/logentry');
 
-router.get('/', async (req, res, next) => {
+router.get('/all', async (req, res, next) => {
     try {
         const entries = await LogEntry.find();
         res.json(entries);
@@ -10,6 +10,43 @@ router.get('/', async (req, res, next) => {
         next(error)
     }
 });
+
+router.get('/vivo', async (req, res, next) => {
+    try {
+        const entries = await LogEntry.find({'operadora':'vivo'});
+        res.json(entries);
+    } catch (error) {
+        next(error)
+    }
+});
+
+router.get('/tim', async (req, res, next) => {
+    try {
+        const entries = await LogEntry.find({'operadora':'tim'});
+        res.json(entries);
+    } catch (error) {
+        next(error)
+    }
+});
+
+router.get('/claro', async (req, res, next) => {
+    try {
+        const entries = await LogEntry.find({'operadora':'claro'});
+        res.json(entries);
+    } catch (error) {
+        next(error)
+    }
+});
+
+router.get('/oi', async (req, res, next) => {
+    try {
+        const entries = await LogEntry.find({'operadora':'oi'});
+        res.json(entries);
+    } catch (error) {
+        next(error)
+    }
+});
+
 
 router.post('/', async (req, res, next) => {
     try {

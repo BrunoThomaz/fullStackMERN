@@ -1,9 +1,15 @@
 const API_URL = 'http://localhost:1337';
 
-export async function listLogEntries() {
-    const response = await fetch(`${API_URL}/api/logs`);
-    return response.json();
+export async function listLogEntries(operadora) {
+    const query = operadora.toLowerCase();
+    try {
+        const response = await fetch(`${API_URL}/api/logs/${query}`);
+        return response.json();
+    } catch (error) {
+        console.error(error);
+    }
 }
+
 
 export async function createLogEntry(entry) {
     const response = await fetch(`${API_URL}/api/logs`,{

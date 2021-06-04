@@ -1,17 +1,19 @@
 import React from 'react';
+import { listLogEntries } from '../../API';
+
 import './menuBar.css';
 
 
-const MenuBar = () => {
+const MenuBar = ({getEntries}) => {
     return (
     <div className="menu-bar">
         <nav>
         <ul>
-            <li><button onClick={(event) => {console.log(event)}}>VIVO</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>CLARO</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>OI</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>TIM</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>TODAS</button></li>
+            <li><button onClick={()=>{getEntries('vivo')}}>VIVO</button></li>
+            <li><button onClick={()=>{getEntries('claro')}}>CLARO</button></li>
+            <li><button onClick={()=>{getEntries('oi')}}>OI</button></li>
+            <li><button onClick={()=>{getEntries('tim')}}>TIM</button></li>
+            <li><button onClick={()=>{getEntries('all')}}>TODAS</button></li>
         </ul>
         </nav>
     </div>
