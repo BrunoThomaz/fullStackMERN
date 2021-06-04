@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
-import { createLogEntry } from './API';
+import { createLogEntry } from '../../API';
+import './addLocationForm.css';
 
 const LocationForm = ({location, onClose}) => {
     const [loading, setLoading] = useState();
@@ -27,15 +28,15 @@ const LocationForm = ({location, onClose}) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="entry-form">
             {error ? (<h3>{error.message}</h3>) : null}
-            <label htmlFor="title">Title: </label>
-            <input name="title" {...register("title")} required/>
-            <label htmlFor="description">Desctiption: </label>
-            <textarea name="description" rows={3} {...register("description")}></textarea>
-            <label htmlFor="comments">Comments: </label>
-            <textarea name="comments" rows={3} {...register("comments")}></textarea>
-            <label htmlFor="image">Image: </label>
-            <input name="image" {...register("image")}/>
-            <button disabled = {loading} > {loading ? 'Loading...' : 'Create Log'}</button>
+            <label htmlFor="operadora">Operadora: </label>
+            <input name="operadora" {...register("operadora")} required/>
+            <label htmlFor="nivel">Nível do sinal: </label>
+            <textarea name="nivel" rows={3} {...register("nivel")}></textarea>
+            <label htmlFor="comentario">Comentario: </label>
+            <textarea name="comentario" rows={3} {...register("comments")}></textarea>
+            <label htmlFor="screenShot">ScreenShot: </label>
+            <input name="screenShot" {...register("screenShot")}/>
+            <button disabled = {loading} > {loading ? 'Carregando...' : 'Gravar'}</button>
         </form>
     )
 }

@@ -8,7 +8,7 @@ const requiredNumber = {
 };
 
 const logEntrySchema = new Schema({
-    title: {
+    operadora: {
         type: String,
         required: true,
     },

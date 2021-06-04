@@ -1,0 +1,23 @@
+.menu-bar {
+    display:block;
+    position: absolute;
+    top: 15px;
+    width: 100vw;
+    z-index: 9999;
+  }
+  .menu-bar nav ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .menu-bar nav ul li {
+    list-style: none;
+  }
+  
+  .menu-bar nav ul li button{
+    padding: 1rem;
+    background-color: rgba(128, 255, 0, 0.926);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 50px 5px rgba(0, 0, 0, 0.159);
+    cursor: pointer;
+  }

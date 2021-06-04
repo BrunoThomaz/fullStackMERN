@@ -5,19 +5,6 @@ body {
     sans-serif;
 }
 
-#root {
-  height: 100vh;
-}
-
-.entry-form {
-  width: 40vw;
-}
-
-.entry-form label,
-.entry-form input,
-.entry-form textarea,
-.entry-form button {
-  width: 90%;
-  display: block;
-
+.popUp {
+  z-index: 999;
 }
