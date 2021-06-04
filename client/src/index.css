@@ -6,5 +6,9 @@ body {
 }
 
 .popUp {
-  z-index: 999;
+  z-index: 2;
+}
+
+.locationButton {
+  z-index: 3;
 }

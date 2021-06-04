@@ -17,7 +17,8 @@ const App = () => {
     height: '100vh',
     latitude: -3.7537540999999996,
     longitude: -38.505748499999996,
-    zoom: 2
+    zoom: 2,
+    zIndex: 1
   });
 
   const [addEntryLocation, setAddEntryLocation] = useState(null);
@@ -176,6 +177,7 @@ const App = () => {
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={false}
             onGeolocate = {showAddMarkerPopup}
+            className="locationButton"
           />
         }
       </ReactMapGL>

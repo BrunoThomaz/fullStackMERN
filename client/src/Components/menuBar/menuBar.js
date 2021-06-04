@@ -11,6 +11,7 @@ const MenuBar = () => {
             <li><button onClick={(event) => {console.log(event)}}>Claro</button></li>
             <li><button onClick={(event) => {console.log(event)}}>Oi</button></li>
             <li><button onClick={(event) => {console.log(event)}}>Tim</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>Todas</button></li>
         </ul>
         </nav>
     </div>
