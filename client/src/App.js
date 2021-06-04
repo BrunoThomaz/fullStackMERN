@@ -121,7 +121,7 @@ const App = () => {
                   className="popUp"
                   >
                   <h3>{entry.operadora}</h3>
-                  <p>{entry.description}</p>
+                  <p>{entry.nivel}</p>
                 </Popup>
                 ) : null
               }
