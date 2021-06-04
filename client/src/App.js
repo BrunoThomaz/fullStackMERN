@@ -120,7 +120,7 @@ const App = () => {
                   anchor="top" 
                   className="popUp"
                   >
-                  <h3>{entry.title}</h3>
+                  <h3>{entry.operadora}</h3>
                   <p>{entry.description}</p>
                 </Popup>
                 ) : null
