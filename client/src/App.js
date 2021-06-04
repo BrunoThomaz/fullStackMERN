@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ReactMapGL, { Marker, NavigationControl, Popup, GeolocateControl } from 'react-map-gl';
 
+
 import { listLogEntries } from './API';
 
 import LocationForm  from './Components/addLocationForm/addLocationForm';
@@ -11,6 +12,8 @@ import MenuBar from './Components/menuBar/menuBar';
 const App = () => {
   const [logEntries, setLogEntries] = useState([]);
   const [showPopup, setShowPopup] = useState({greetings:true});
+  const [profile, setProfile] = useState(null);
+
 
   const [viewport, setViewport] = useState({
     width: '100vw',
@@ -36,12 +39,15 @@ const App = () => {
     
   }
   const getEntries = async (operadora="all") => {
-    const logEntries = await listLogEntries(operadora);
-    if (logEntries.message) {
-      return console.log(logEntries.message);
+    try {
+      const logEntries = await listLogEntries(operadora);
+      if (logEntries.message) {
+        return console.log(logEntries.message);
+      }
+      setLogEntries(logEntries);
+    } catch (error) {
+      console.log(error);
     }
-    console.log(logEntries);
-    setLogEntries(logEntries);
   }
 
   useEffect(() => {
@@ -57,13 +63,16 @@ const App = () => {
     left: 10,
     bottom: 40
   }
+
+  
   
 
   return (
     <div
     className="mainApp"
     >
-      <MenuBar getEntries={getEntries}/>
+    
+      <MenuBar getEntries={getEntries} setProfile={setProfile} profile={profile}/>
       <ReactMapGL
         {...viewport}
         onViewportChange = {setViewport}
@@ -169,10 +178,14 @@ const App = () => {
                   anchor="top" 
                   className="popUp"
                   >
-                  <LocationForm onClose={() => {
-                    setAddEntryLocation(null);
-                    getEntries();
-                  }} location={addEntryLocation}/>
+                  <LocationForm 
+                    onClose={() => {
+                      setAddEntryLocation(null);
+                      getEntries();
+                    }} 
+                    location={addEntryLocation}
+                    profile={profile}
+                    />
                 </Popup>
               }
             </React.Fragment>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { Profiler, useState } from 'react';
 import { useForm } from "react-hook-form";
 
 import { createLogEntry } from '../../API';
 import './addLocationForm.css';
 
-const LocationForm = ({location, onClose}) => {
+const LocationForm = ({location, onClose, profile}) => {
     const [loading, setLoading] = useState();
     const [error, setError] = useState('');
     const { register, handleSubmit} = useForm();
@@ -29,13 +29,26 @@ const LocationForm = ({location, onClose}) => {
         <form onSubmit={handleSubmit(onSubmit)} className="entry-form">
             {error ? (<h3>{error.message}</h3>) : null}
             <label htmlFor="operadora">Operadora: </label>
-            <input name="operadora" {...register("operadora")} required/>
+            <select name="operadora" {...register("operadora")} required>
+                <option defaultValue value={null}></option>
+                <option value="vivo">Vivo</option>
+                <option value="claro">Claro</option>
+                <option value="oi">Oi</option>
+                <option value="tim">Tim</option>
+            </select>
             <label htmlFor="nivel">Nível do sinal: </label>
-            <textarea name="nivel" rows={3} {...register("nivel")}></textarea>
+            <select name="nivel" {...register("nivel")} required>
+                <option defaultValue value={null}></option>
+                <option value={1}>Ruim</option>
+                <option value={2}>2G</option>
+                <option value={3}>3G</option>
+                <option value={4}>4G</option>
+            </select>
             <label htmlFor="comentario">Comentario: </label>
             <textarea name="comentario" rows={3} {...register("comments")}></textarea>
-            <label htmlFor="screenShot">ScreenShot: </label>
-            <input name="screenShot" {...register("screenShot")}/>
+            <input value={profile.imageUrl} name="image" {...register("image")} disabled/>
+            <input value={profile.googleId} name="googleId" {...register("googleId")} disabled/>
+
             <button disabled = {loading} > {loading ? 'Carregando...' : 'Gravar'}</button>
         </form>
     )

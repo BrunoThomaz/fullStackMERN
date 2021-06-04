@@ -12,14 +12,12 @@ const logEntrySchema = new Schema({
         type: String,
         required: true,
     },
-    nivel: String,
+    nivel: Number,
     comments: String,
     image: String,
-    rating: {
-        type: Number,
-        min: [0,'The worst location ever'],
-        max: [10, "Your best location ever!"],
-        default : 0,
+    googleId:{ 
+        type: String, 
+        required:true
     },
     latitude: {
         ...requiredNumber,
