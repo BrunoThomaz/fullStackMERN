@@ -7,11 +7,11 @@ const MenuBar = () => {
     <div className="menu-bar">
         <nav>
         <ul>
-            <li><button onClick={(event) => {console.log(event)}}>Vivo</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>Claro</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>Oi</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>Tim</button></li>
-            <li><button onClick={(event) => {console.log(event)}}>Todas</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>VIVO</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>CLARO</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>OI</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>TIM</button></li>
+            <li><button onClick={(event) => {console.log(event)}}>TODAS</button></li>
         </ul>
         </nav>
     </div>

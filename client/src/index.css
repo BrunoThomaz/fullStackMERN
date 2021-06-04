@@ -1,12 +1,21 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Oxygen',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 
 .popUp {
   z-index: 2;
+}
+
+.marker path {
+  fill:#189ab4;
+  stroke:#189ab4;
+}
+.addLog path {
+  fill:#d4f1f4;
+  stroke:#d4f1f4;
 }
 
 .locationButton {

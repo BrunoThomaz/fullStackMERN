@@ -15,14 +15,18 @@
   
   .menu-bar nav ul li button{
     padding: 1rem;
-    background-color: rgba(128, 255, 0, 0.4);
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color:#05435e;
+    background-color: #75e6db6e;
     border: none;
     border-radius: 8px;
-    box-shadow: 1px 1px 50px 5px rgba(0, 0, 0, 0.159);
+    box-shadow: 1px 1px 5px 3px #05435e4d;
     cursor: pointer;
     transition: all ease .4s;
+    
   }
   .menu-bar nav ul li button:hover{
-    background-color: rgba(128, 255, 0, 0.6);
+    background-color: #75e6dba3;
     box-shadow: 1px 1px 50px 5px rgba(255, 255, 255, 0.159);
   }
