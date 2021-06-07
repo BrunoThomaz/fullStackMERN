@@ -1,11 +1,36 @@
 .entry-form {
     width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
   
-  .entry-form label,
-  .entry-form input,
-  .entry-form textarea,
-  .entry-form button {
-    width: 90%;
-    display: block;
-  }
+.entry-form label,
+.entry-form input,
+.entry-form textarea,
+.entry-form button {
+  width: 90%;
+  margin:.5rem;
+}
+.entry-form button {
+  height: 35px;
+  align-self: center;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  color: #05435e;
+  background-color: #75e6db6e;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px 3px #05435e4d;
+  cursor: pointer;
+  transition: all ease-in-out .4s;
+}
+
+.entry-form button:hover {
+  background-color: #75e6dba3;
+  box-shadow: 1px 1px 50px 5px rgb(255 255 255 / 29%);
+}
+
+input.hiddenInput{
+  display: none;
+}

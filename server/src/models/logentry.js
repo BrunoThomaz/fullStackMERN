@@ -12,12 +12,15 @@ const logEntrySchema = new Schema({
         type: String,
         required: true,
     },
-    nivel: Number,
+    nivel: {
+        type: String,
+        required: true,
+    },
     comments: String,
     image: String,
     googleId:{ 
         type: String, 
-        required:true
+        required:true,
     },
     latitude: {
         ...requiredNumber,

@@ -1,5 +1,7 @@
 .menu-bar {
-    display:block;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
     position: absolute;
     top: 15px;
     width: 100vw;
@@ -8,6 +10,7 @@
   .menu-bar nav ul {
     display: flex;
     justify-content: space-evenly;
+    width: 70vw;
   }
   .menu-bar nav ul li {
     list-style: none;
@@ -32,12 +35,11 @@
   }
 
   .login .profile {
-    width: 30%;
+    width: 30vw;
     max-width: 200px;
     display: flex;
     align-items: center;
     background-color: #75e6dba3;
-    margin-left:15px;
     padding:.5rem;
     border-radius: 8px;
   }
@@ -46,10 +48,10 @@
     width: 30%;
     margin: .5rem;
   }
-  .login p {
+  .profile .info p {
     width: 100%;
     margin:.5rem;
-
+    color:#05435e;
   }
 
   .loginBtn {

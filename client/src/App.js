@@ -78,7 +78,13 @@ const App = () => {
         onViewportChange = {setViewport}
         mapboxApiAccessToken = {process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         doubleClickZoom = {false}
-        onDblClick={showAddMarkerPopup}
+        onDblClick={(event)=>{
+          if (profile) {
+            showAddMarkerPopup(event);
+          } else {
+            alert('Por favor, faça login para contribuir!');
+          }
+        }}
         >
         {
           showPopup["greetings"] ? (
@@ -92,7 +98,7 @@ const App = () => {
               className="popUp"
               >
               <p>Vamos fazer um mapa da internet na Cabotagem brasileira!</p>
-              <p>Para contribuir, dê um duplo clique na sua localização e preencha o formulário.</p>
+              <p>Para contribuir, basta estar logado e dar um duplo clique na sua localização que deseja.</p>
             </Popup>
           ) : null
         }
@@ -138,8 +144,13 @@ const App = () => {
                   anchor="top" 
                   className="popUp"
                   >
-                  <h3>{entry.operadora}</h3>
+                  <h3>{entry.operadora.toUpperCase()}</h3>
                   <p>{entry.nivel}</p>
+                  <div className="row">
+                    <img src={entry.image} alt="User"></img>
+                    <p>{entry.comments}</p>
+                  </div>
+                  <small>Visto em: {new Date(entry.visitDate).toLocaleDateString()}</small>
                 </Popup>
                 ) : null
               }
@@ -148,7 +159,7 @@ const App = () => {
         }
 
         {
-          addEntryLocation ? (
+          addEntryLocation && profile ? (
           <React.Fragment >
               <Marker 
                 latitude = {addEntryLocation.latitude} 

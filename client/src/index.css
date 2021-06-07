@@ -8,6 +8,16 @@ body {
 .popUp {
   z-index: 2;
 }
+.popUp .row {
+  display: flex;
+  align-items: center;
+}
+.popUp .row img {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: .5rem;
+}
 
 .marker path {
   fill:#189ab4;
